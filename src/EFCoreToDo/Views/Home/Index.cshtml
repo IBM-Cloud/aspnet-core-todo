@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ASP.NET Core ToDo Sample Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="leftHalf">
+        <img class="newappIcon" src="~/images/newapp-icon.png" />
+        <h1>
+            Welcome to the <span class="blue">ASP.NET ToDo Sample</span> on Bluemix!
+        </h1>
+        <p class="description">To get started see the Start Coding guide under your app in your dashboard.</p>
+    </div>
+    <div class="rightHalf">
+        <div class="center">
+            <header>
+                <div class='title'>
+                    ASP.NET ToDo Sample
+                </div>
+            </header>
+            <table id='notes' class='records'><tbody></tbody></table>
+            <div id="loading">&nbsp;&nbsp;Please wait while the data is being loaded...</div>
+            <footer>
+                <div class='tips'>
+                    Click the Add button to add a record.
+                    <button class='addBtn' onclick="addItem()" title='add record'>
+                        <img src='~/images/add.png' alt='add' />
+                    </button>
+                </div>
+            </footer>
+            <environment names="Development">
+                <script type="text/javascript" src="~/js/util.js"></script>
+                <script type="text/javascript" src="~/js/index.js"></script>
+            </environment>
+            <environment names="Staging,Production">
+                <script type="text/javascript" src="~/js/site.min.js" asp-append-version="true"></script>
+            </environment>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+declared-services:
+  elephant-sql-service:
+    label: elephantsql
+    plan: turtle
+applications:
+- name: aspnet-core-todo
+  random-route: true
+  memory: 256M
+  services:
+  - elephant-sql-service
+buildpack: https://github.com/cloudfoundry-community/dotnet-core-buildpack.git
