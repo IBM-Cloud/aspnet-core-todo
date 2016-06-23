@@ -10,20 +10,20 @@ This application demonstrates how to use the ElephantSQL PostgreSQL Database Ser
 
   [Sign up][sign_up] in Bluemix, or use an existing account.
 
-+ Download and install the [Cloud-foundry CLI][cloud_foundry] tool
+1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
 
-+ Connect to Bluemix in the command line tool and follow the prompts to log in.
+1. Connect to Bluemix in the command line tool and follow the prompts to log in.
 
   ```sh
   cf login -a https://api.ng.bluemix.net
   ```
 
-+ Create the ElephantSQL service instance in Bluemix
+1. Create the ElephantSQL service instance in Bluemix
   ```sh
   cf create-service elephantsql turtle elephant-sql-service
   ```
 
-+ Push the app to Bluemix
+1. Push the app to Bluemix
   ```sh
   cf push
   ```
@@ -31,34 +31,34 @@ This application demonstrates how to use the ElephantSQL PostgreSQL Database Ser
 ## Run the app locally
 
 1. If you do not already have a Bluemix account, [sign up here][sign_up]
-+ If you have not already, install ASP.NET Core and the Dotnet CLI by following the [Getting Started][] instructions
-+ Clone the app to your local environment from your terminal using the following command:
+1. If you have not already, install ASP.NET Core and the Dotnet CLI by following the [Getting Started][] instructions
+1. Clone the app to your local environment from your terminal using the following command:
 
   ```sh
   git clone https://github.com/IBM-Bluemix/aspnet-core-todo.git
   ```
 
-+ `cd` into the newly created directory
-+ Create an ElephantSQL service instance using the Bluemix UI or the following command:
+1. `cd` into the newly created directory
+1. Create an ElephantSQL service instance using the Bluemix UI or the following command:
 
   ```sh
   cf create-service elephantsql turtle elephant-sql-service
   ```
 
-+ Copy the value for the service credentials from your ElephantSQL service instance in Bluemix and paste it in the `src/EFCoreToDo/vcap-local.json` file
-+ Restore required Nuget packages
+1. Copy the value for the service credentials from your ElephantSQL service instance in Bluemix and paste it in the `src/EFCoreToDo/vcap-local.json` file
+1. Restore required Nuget packages
 
   ```sh
   dotnet restore
   ```
 
-+ Run the application
+1. Run the application
 
   ```sh
   dotnet run -p src/EFCoreToDo
   ```
 
-+ Access the running app in a browser at [http://localhost:5000](http://localhost:5000)
+1. Access the running app in a browser at [http://localhost:5000](http://localhost:5000)
 
 ## Decomposition Instructions
 
