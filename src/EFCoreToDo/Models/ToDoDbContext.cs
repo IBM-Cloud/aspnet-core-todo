@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Linq;
 
 namespace EFCoreToDo.Models
@@ -24,6 +25,13 @@ namespace EFCoreToDo.Models
 
         public ToDoDbContext(DbContextOptions<ToDoDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.HasPostgresExtension("uuid-ossp");
         }
         
         internal void PopulateDatabase()

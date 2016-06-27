@@ -8,3 +8,5 @@ applications:
   memory: 256M
   services:
   - elephant-sql-service
+  env:
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
