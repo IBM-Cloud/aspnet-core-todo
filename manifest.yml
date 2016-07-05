@@ -5,6 +5,6 @@ declared-services:
 applications:
 - name: aspnet-core-todo
   random-route: true
-  memory: 256M
+  memory: 512M
   services:
   - elephant-sql-service
