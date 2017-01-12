@@ -96,7 +96,7 @@ namespace EFCoreToDo
             };
             var appName = "ASP.NET Core RC2 ToDo Sample";
             var connection = string.Format(@"Server={0};Port={1};User Id={2};Password={3};Database={4};"
-                + "SSL Mode=Require;Trust Server Certificate=true;Application Name={5}",
+                + "SSL Mode=Require;Application Name={5}",
                 creds.Server, creds.Port, creds.Username, creds.Password, creds.Database, appName);
 
             services.AddEntityFrameworkNpgsql()
