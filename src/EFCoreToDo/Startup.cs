@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright 2016 IBM Corp. All Rights Reserved.
+ * Copyright 2016-2017 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the “License”);
  * you may not use this file except in compliance with the License.
@@ -33,8 +33,10 @@ namespace EFCoreToDo
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("vcap-local.json", optional: true)
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(env.ContentRootPath)
+				.AddJsonFile("vcap-local.json", optional: true) // optionally read VCAP_SERVICES info from vcap-local.json
+																// which is only copied to output when VCAP_SERVICES environment variable is undefined
+				.AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
@@ -94,7 +96,7 @@ namespace EFCoreToDo
                 Server = Configuration.GetSection("elephantsql:0:credentials:hostname").Value,
                 Username = Configuration.GetSection("elephantsql:0:credentials:username").Value
             };
-            var appName = "ASP.NET Core RC2 ToDo Sample";
+            var appName = "ASP.NET Core ToDo Sample";
             var connection = string.Format(@"Server={0};Port={1};User Id={2};Password={3};Database={4};"
                 + "SSL Mode=Require;Application Name={5}",
                 creds.Server, creds.Port, creds.Username, creds.Password, creds.Database, appName);
@@ -142,13 +144,9 @@ namespace EFCoreToDo
         // Entry point for the application.
         public static void Main(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .AddCommandLine(args)
-                .Build();
-
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseConfiguration(config)
+                .UseContentRoot(AppContext.BaseDirectory)
                 .UseStartup<Startup>()
                 .Build();
 

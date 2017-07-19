@@ -25,7 +25,7 @@ namespace EFCoreToDo
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonProperty("_id")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [JsonProperty("text")]
         public string Text { get; set; }
     }
